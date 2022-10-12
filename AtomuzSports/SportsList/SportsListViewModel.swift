@@ -29,4 +29,16 @@ final class SportsListViewModel {
         }
     }
 
+    public func getSportsLength() -> Int {
+        return self.sports.value.sports.count
+    }
+
+    public func getSportsName() -> [String] {
+        var sportsName: [String] = []
+        for index in self.sports.value.sports {
+            sportsName.append(index.strSport)
+        }
+        return sportsName
+    }
+
 }

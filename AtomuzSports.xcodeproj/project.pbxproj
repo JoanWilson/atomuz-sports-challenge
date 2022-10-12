@@ -29,6 +29,7 @@
 		85434E1728F692A6005FD6D0 /* SportsClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434E1628F692A6005FD6D0 /* SportsClientProtocol.swift */; };
 		85434E1928F693C4005FD6D0 /* SportsClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434E1828F693C4005FD6D0 /* SportsClientMock.swift */; };
 		85434E1B28F694FE005FD6D0 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434E1A28F694FE005FD6D0 /* ObservableObject.swift */; };
+		8567B45528F70B8300503054 /* SportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567B45428F70B8300503054 /* SportsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		85434E1628F692A6005FD6D0 /* SportsClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsClientProtocol.swift; sourceTree = "<group>"; };
 		85434E1828F693C4005FD6D0 /* SportsClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsClientMock.swift; sourceTree = "<group>"; };
 		85434E1A28F694FE005FD6D0 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
+		8567B45428F70B8300503054 /* SportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				85434DFC28F67C1E005FD6D0 /* SportsListCoordinator.swift */,
+				8567B45428F70B8300503054 /* SportsTableViewCell.swift */,
 				85434DFE28F67C9D005FD6D0 /* SportsListViewController.swift */,
 				85434E0028F68481005FD6D0 /* SportsListViewModel.swift */,
 			);
@@ -397,6 +400,7 @@
 				85434DF328F66E45005FD6D0 /* Coordinator.swift in Sources */,
 				85434E0528F6881E005FD6D0 /* ViewModelFactory.swift in Sources */,
 				85434E1728F692A6005FD6D0 /* SportsClientProtocol.swift in Sources */,
+				8567B45528F70B8300503054 /* SportsTableViewCell.swift in Sources */,
 				85434E0928F68AA6005FD6D0 /* SportsDetailViewModel.swift in Sources */,
 				85434DEF28F66D4B005FD6D0 /* ViewCoding.swift in Sources */,
 				85434DFB28F67A74005FD6D0 /* AppCoordinator.swift in Sources */,
