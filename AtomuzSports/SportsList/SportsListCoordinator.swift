@@ -19,7 +19,8 @@ final class SportsListCoordinator: Coordinator {
     }
 
     func start() {
-        let sportsListViewModel = SportsListViewModel()
+        let sportsClient = SportsClient()
+        let sportsListViewModel = SportsListViewModel(client: sportsClient)
         let sportsListViewController = SportsListViewController(viewModel: sportsListViewModel)
         navigationController.setViewControllers([sportsListViewController], animated: false)
     }

@@ -28,7 +28,13 @@ final class SportsListViewController: UIViewController {
     }
 
     private func addBinders() {
-        self.viewModel.helloWorld()
+        viewModel.sports.bind { [weak self] sportsResult in
+            guard let _ = self else { return }
+
+            sportsResult.sports.forEach { sport in
+                print(sport.strSport)
+            }
+        }
     }
 
 }
@@ -44,7 +50,7 @@ extension SportsListViewController: ViewCoding {
     }
 
     func setupConstraints() {
-
+    
     }
 
 }
