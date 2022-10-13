@@ -7,10 +7,6 @@
 
 import Foundation
 
-public struct Sports: Codable {
-    let sports: [Sport]
-}
-
 public struct Sport: Codable {
     let idSport, strSport: String
     let strFormat: StrFormat

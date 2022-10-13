@@ -19,9 +19,9 @@ final class SportsDetailCoordinator: Coordinator {
     }
 
     func start() {
-        let sportsDetailViewModel = SportsDetailViewModel()
-        let sportsDetailViewController = SportsDetailViewController(viewModel: sportsDetailViewModel)
-        navigationController.setViewControllers([sportsDetailViewController], animated: false)
+//        let sportsDetailViewModel = SportsDetailViewModel()
+//        let sportsDetailViewController = SportsDetailViewController(viewModel: sportsDetailViewModel)
+//        navigationController.setViewControllers([sportsDetailViewController], animated: false)
     }
 
 }
