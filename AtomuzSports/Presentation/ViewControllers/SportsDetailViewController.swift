@@ -10,10 +10,21 @@ import UIKit
 final class SportsDetailViewController: UIViewController {
 
     private var viewModel: SportsDetailViewModel
+    public var sport: Sport = Sport(idSport: "", strSport: "", strFormat: StrFormat.teamvsTeam, strSportThumb: "", strSportIconGreen: "", strSportDescription: "")
 
-    init(viewModel: SportsDetailViewModel) {
+    lazy var label: UILabel = {
+        let label = UILabel()
+        label.text = sport.strSport
+        label.textColor = .black
+        label.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
+
+    init(viewModel: SportsDetailViewModel, sport: Sport) {
         self.viewModel = viewModel
-
+        self.sport = sport
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -24,10 +35,15 @@ final class SportsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.buildLayout()
+        navigationItem.backButtonTitle = ""
     }
 
     private func addBinders() {
         self.viewModel.helloWorld()
+    }
+
+    @objc func backView() {
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
@@ -39,11 +55,14 @@ extension SportsDetailViewController: ViewCoding {
     }
 
     func setupHierarchy() {
-
+        self.view.addSubview(label)
     }
 
     func setupConstraints() {
-
+        NSLayoutConstraint.activate([
+            self.label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 
 }

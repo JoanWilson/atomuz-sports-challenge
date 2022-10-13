@@ -31,6 +31,11 @@ class SportsListView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.buildLayout()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.loading.stopAnimating()
+            self.sportsTableView.isHidden = false
+
+        }
     }
 
 }
@@ -50,7 +55,7 @@ extension SportsListView: ViewCoding {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             self.sportsTableView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.sportsTableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            self.sportsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.sportsTableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             self.sportsTableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
 

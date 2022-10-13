@@ -33,6 +33,7 @@
 		8567B46928F87FC400503054 /* Sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567B46828F87FC400503054 /* Sports.swift */; };
 		8567B46B28F87FD900503054 /* SportsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567B46A28F87FD900503054 /* SportsUseCase.swift */; };
 		8567B46C28F8941500503054 /* SportsClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434E1828F693C4005FD6D0 /* SportsClientMock.swift */; };
+		8567B47128F8C81700503054 /* UIImageViewFetchImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567B47028F8C81700503054 /* UIImageViewFetchImageURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		8567B45628F82F8F00503054 /* SportsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsListView.swift; sourceTree = "<group>"; };
 		8567B46828F87FC400503054 /* Sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sports.swift; sourceTree = "<group>"; };
 		8567B46A28F87FD900503054 /* SportsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsUseCase.swift; sourceTree = "<group>"; };
+		8567B47028F8C81700503054 /* UIImageViewFetchImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewFetchImageURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				85434DEE28F66D4B005FD6D0 /* ViewCoding.swift */,
 				85434E0428F6881E005FD6D0 /* ViewModelFactory.swift */,
 				85434E1A28F694FE005FD6D0 /* ObservableObject.swift */,
+				8567B47028F8C81700503054 /* UIImageViewFetchImageURL.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -309,6 +312,8 @@
 			dependencies = (
 			);
 			name = AtomuzSports;
+			packageProductDependencies = (
+			);
 			productName = AtomuzSports;
 			productReference = 85434DAE28F669D5005FD6D0 /* AtomuzSports.app */;
 			productType = "com.apple.product-type.application";
@@ -381,6 +386,8 @@
 				Base,
 			);
 			mainGroup = 85434DA528F669D5005FD6D0;
+			packageReferences = (
+			);
 			productRefGroup = 85434DAF28F669D5005FD6D0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,6 +465,7 @@
 				85434DFB28F67A74005FD6D0 /* AppCoordinator.swift in Sources */,
 				85434DFF28F67C9D005FD6D0 /* SportsListViewController.swift in Sources */,
 				85434E0328F68659005FD6D0 /* SportsClient.swift in Sources */,
+				8567B47128F8C81700503054 /* UIImageViewFetchImageURL.swift in Sources */,
 				85434E0728F68A69005FD6D0 /* SportsDetailCoordinator.swift in Sources */,
 				85434E0B28F68ABD005FD6D0 /* SportsDetailViewController.swift in Sources */,
 				85434E1B28F694FE005FD6D0 /* ObservableObject.swift in Sources */,

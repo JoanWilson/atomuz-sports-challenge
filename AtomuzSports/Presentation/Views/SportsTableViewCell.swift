@@ -11,6 +11,8 @@ final class SportsTableViewCell: UITableViewCell {
 
     static let indentifier: String = "SportsTableViewCell"
 
+    private var sport: Sport = Sport(idSport: "", strSport: "", strFormat: StrFormat.teamvsTeam, strSportThumb: "", strSportIconGreen: "", strSportDescription: "")
+
     fileprivate lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -19,6 +21,7 @@ final class SportsTableViewCell: UITableViewCell {
         stackView.layoutMargins = UIEdgeInsets(top: 13, left: 20, bottom: 13, right: 20)
         stackView.layer.cornerRadius = 10
         stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.distribution = .equalSpacing
         stackView.layer.shadowColor = UIColor.label.cgColor
         stackView.layer.shadowOpacity = 0.3
         stackView.layer.shadowOffset = .zero
@@ -30,7 +33,7 @@ final class SportsTableViewCell: UITableViewCell {
 
     public lazy var sportsLabel: UILabel = {
         let label = UILabel()
-        label.text = "Soccer"
+        label.text = sport.strSport
         label.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
         label.textColor = .systemGray
 
@@ -39,8 +42,8 @@ final class SportsTableViewCell: UITableViewCell {
 
     public lazy var sportsIconImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.load(url: URL(string: sport.strSportIconGreen)!)
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: 0, y: 0, width: 31, height: 31)
 
         return imageView
     }()
@@ -60,6 +63,10 @@ final class SportsTableViewCell: UITableViewCell {
 
     }
 
+    public func setSport(with sport: Sport) {
+        self.sport = sport
+    }
+
 }
 
 extension SportsTableViewCell: ViewCoding {
@@ -71,15 +78,15 @@ extension SportsTableViewCell: ViewCoding {
     func setupHierarchy() {
         self.containerStackView.addArrangedSubview(sportsLabel)
         self.containerStackView.addArrangedSubview(sportsIconImageView)
-        self.addSubview(containerStackView)
+        contentView.addSubview(containerStackView)
     }
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.containerStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.containerStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.containerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.containerStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+            self.containerStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            self.containerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            self.containerStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            self.containerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
 
     }

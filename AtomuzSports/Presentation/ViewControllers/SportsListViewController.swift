@@ -12,8 +12,6 @@ final class SportsListViewController: UIViewController {
     private var viewModel: SportsListViewModel {
         didSet {
             self.contentView.sportsTableView.reloadData()
-            self.contentView.sportsTableView.isHidden = false
-            self.contentView.loading.isHidden = true
         }
     }
     private var isSearch: Bool = false
@@ -51,17 +49,9 @@ final class SportsListViewController: UIViewController {
 
     private func addBinders() {
         viewModel.sports.bind { [weak self] _ in
-            // swiftlint:disable unused_optional_binding
-            guard let _ = self else { return }
+            guard let self else { return }
             DispatchQueue.main.async {
-                self?.contentView.sportsTableView.reloadData()
-            }
-        }
-
-        viewModel.sportsGreenIcons.bind { [weak self] _ in
-            guard let _ = self else { return }
-            DispatchQueue.main.async {
-                self?.contentView.sportsTableView.reloadData()
+                self.contentView.sportsTableView.reloadData()
             }
         }
     }
@@ -95,7 +85,7 @@ extension SportsListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.sportsGreenIcons.value.count
+        return self.viewModel.getSportsLength()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -114,24 +104,13 @@ extension SportsListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let sportsArray: [Sport] = self.viewModel.getSportsObjectArrayOrdered()
-        sportsCell.sportsLabel.text = sportsArray[indexPath.section].strSport
-        sportsCell.sportsIconImageView.image = self.viewModel.getGreenIconImageSportArray()[indexPath.section]
-
-//        if let cachedImage = imageCache.object(forKey: NSString(string: (sportsArray[indexPath.section].strSport))) {
-//            sportsCell.sportsIconImageView.image = cachedImage
-//        } else {
-//            DispatchQueue.global().async {
-//                let sportGreenIcon = self.viewModel.getIconImageSport(for: sportsArray[indexPath.section])
-//                sportsCell.sportsIconImageView.image = sportGreenIcon
-//                self.imageCache.setObject(
-//                    sportGreenIcon!,
-//                    forKey: NSString(string: (sportsArray[indexPath.section].strSport))
-//                )
-//            }
-//        }
-
+        sportsCell.setSport(with: self.viewModel.getSportByIndex(index: indexPath.section))
+        sportsCell.selectionStyle = .none
         return sportsCell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel.coordinator.showDetail(for: self.viewModel.getSportByIndex(index: indexPath.section))
     }
 }
 
