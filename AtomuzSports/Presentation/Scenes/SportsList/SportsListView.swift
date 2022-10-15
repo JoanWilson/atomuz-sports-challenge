@@ -9,13 +9,13 @@ import UIKit
 
 class SportsListView: UIView {
 
-    let loading: UIActivityIndicatorView = {
-        let loadingView = UIActivityIndicatorView(style: .medium)
-        loadingView.startAnimating()
-        loadingView.translatesAutoresizingMaskIntoConstraints = false
-
-        return loadingView
-    }()
+//    let loading: UIActivityIndicatorView = {
+//        let loadingView = UIActivityIndicatorView(style: .medium)
+//        loadingView.startAnimating()
+//        loadingView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return loadingView
+//    }()
 
     lazy var sportsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -23,7 +23,7 @@ class SportsListView: UIView {
         tableView.register(SportsTableViewCell.self, forCellReuseIdentifier: SportsTableViewCell.indentifier)
         tableView.separatorColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.isHidden = true
+        tableView.isHidden = false
 
         return tableView
     }()
@@ -31,11 +31,6 @@ class SportsListView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.buildLayout()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.loading.stopAnimating()
-            self.sportsTableView.isHidden = false
-
-        }
     }
 
 }
@@ -49,7 +44,6 @@ extension SportsListView: ViewCoding {
 
     func setupHierarchy() {
         self.addSubview(self.sportsTableView)
-        self.addSubview(self.loading)
     }
 
     func setupConstraints() {
@@ -57,10 +51,7 @@ extension SportsListView: ViewCoding {
             self.sportsTableView.topAnchor.constraint(equalTo: self.topAnchor),
             self.sportsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.sportsTableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            self.sportsTableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-
-            self.loading.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.loading.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            self.sportsTableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }

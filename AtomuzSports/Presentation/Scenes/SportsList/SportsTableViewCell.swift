@@ -11,7 +11,15 @@ final class SportsTableViewCell: UITableViewCell {
 
     static let indentifier: String = "SportsTableViewCell"
 
-    private var sport: Sport = Sport(idSport: "", strSport: "", strFormat: StrFormat.teamvsTeam, strSportThumb: "", strSportIconGreen: "", strSportDescription: "")
+    private var sport: Sport? {
+        didSet {
+            sportsLabel.text = sport?.strSport
+            guard let url = URL(string: sport!.strSportIconGreen) else {
+                return
+            }
+            sportsIconImageView.load(url: url)
+        }
+    }
 
     fileprivate lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()
@@ -33,7 +41,6 @@ final class SportsTableViewCell: UITableViewCell {
 
     public lazy var sportsLabel: UILabel = {
         let label = UILabel()
-        label.text = sport.strSport
         label.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
         label.textColor = .systemGray
 
@@ -42,7 +49,6 @@ final class SportsTableViewCell: UITableViewCell {
 
     public lazy var sportsIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.load(url: URL(string: sport.strSportIconGreen)!)
         imageView.contentMode = .scaleAspectFit
 
         return imageView
@@ -50,7 +56,7 @@ final class SportsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        self.sport = nil
     }
 
     override func layoutSubviews() {
@@ -60,7 +66,11 @@ final class SportsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.setSport(with: Sport(idSport: "", strSport: "", strFormat: StrFormat.teamvsTeam, strSportThumb: "", strSportIconGreen: "", strSportDescription: ""))
     }
 
     public func setSport(with sport: Sport) {
@@ -72,7 +82,7 @@ final class SportsTableViewCell: UITableViewCell {
 extension SportsTableViewCell: ViewCoding {
 
     func setupView() {
-
+        self.backgroundColor = .clear
     }
 
     func setupHierarchy() {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public struct Sports: Codable {
-    let sports: [Sport]
+    var sports: [Sport]
 }
 
 extension Sports: Hashable {

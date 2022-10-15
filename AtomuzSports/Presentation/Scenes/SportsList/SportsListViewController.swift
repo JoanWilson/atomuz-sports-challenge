@@ -9,11 +9,7 @@ import UIKit
 
 final class SportsListViewController: UIViewController {
 
-    private var viewModel: SportsListViewModel {
-        didSet {
-            self.contentView.sportsTableView.reloadData()
-        }
-    }
+    private var viewModel: SportsListViewModel
     private var isSearch: Bool = false
     private var imageCache = NSCache<NSString, UIImage>()
     private let contentView = SportsListView()
@@ -38,17 +34,24 @@ final class SportsListViewController: UIViewController {
         super.loadView()
         self.view = contentView
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureNavigationController()
         self.addBinders()
         self.contentView.sportsTableView.delegate = self
         self.contentView.sportsTableView.dataSource = self
+        self.searchController.searchBar.delegate = self
     }
 
     private func addBinders() {
-        viewModel.sports.bind { [weak self] _ in
+//        viewModel.sports.bind { [weak self] _ in
+//            guard let self else { return }
+//            DispatchQueue.main.async {
+//                self.contentView.sportsTableView.reloadData()
+//            }
+//        }
+
+        viewModel.filteredSports.bind { [weak self] _ in
             guard let self else { return }
             DispatchQueue.main.async {
                 self.contentView.sportsTableView.reloadData()
@@ -75,9 +78,7 @@ final class SportsListViewController: UIViewController {
 extension SportsListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
+        self.viewModel.makeViewHeaderForTableViewSection()
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -97,20 +98,11 @@ extension SportsListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let sportsCell = tableView.dequeueReusableCell(
-            withIdentifier: SportsTableViewCell.indentifier,
-            for: indexPath
-        ) as? SportsTableViewCell else {
-            return UITableViewCell()
-        }
-
-        sportsCell.setSport(with: self.viewModel.getSportByIndex(index: indexPath.section))
-        sportsCell.selectionStyle = .none
-        return sportsCell
+        self.viewModel.makeSportsTableViewCell(tableView: tableView, indexPath: indexPath)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel.coordinator.showDetail(for: self.viewModel.getSportByIndex(index: indexPath.section))
+        self.viewModel.showCellDetail(index: indexPath.section)
     }
 }
 
@@ -133,22 +125,8 @@ extension SportsListViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         isSearch = false
     }
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //            if searchText.count == 0 {
-        //                isSearch = false
-        //                self.maintableView.reloadData()
-        //            } else {
-        //                filteredTableData = tableData.filter({ (text) -> Bool in
-        //                    let tmp: NSString = text as NSString
-        //                    let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-        //                    return range.location != NSNotFound
-        //                })
-        //                if(filteredTableData.count == 0){
-        //                    isSearch = false
-        //                } else {
-        //                    isSearch = true
-        //                }
-        //                self.maintableView.reloadData()
-        //            }
+        viewModel.filterSports(by: searchBar.text ?? "")
     }
 }
