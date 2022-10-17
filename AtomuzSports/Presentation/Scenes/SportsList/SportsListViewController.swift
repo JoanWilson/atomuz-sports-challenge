@@ -125,6 +125,7 @@ extension SportsListViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        viewModel.filterSports(by: dgrrdg"")
         isSearch = false
     }
 
