@@ -9,9 +9,8 @@ import UIKit
 
 final class SportsListViewController: UIViewController {
 
-    private var viewModel: SportsListViewModel
+    public var viewModel: SportsListViewModel
     private var isSearch: Bool = false
-    private var imageCache = NSCache<NSString, UIImage>()
     public let contentView = SportsListView()
 
     fileprivate lazy var searchController: UISearchController = {
@@ -28,7 +27,7 @@ final class SportsListViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     override func loadView() {
@@ -125,7 +124,7 @@ extension SportsListViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        viewModel.filterSports(by: dgrrdg"")
+        viewModel.filterSports(by: "")
         isSearch = false
     }
 

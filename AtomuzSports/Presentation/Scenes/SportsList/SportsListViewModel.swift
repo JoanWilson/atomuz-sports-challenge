@@ -22,20 +22,14 @@ public class SportsListViewModel {
     }
 
     func filterSports(by searchText: String) {
-        self.filteredSports.value = []
-        if searchText == "" {
-            self.filteredSports.value = self.sports.value
-        } else {
-            for index in self.sports.value where index.strSport.lowercased().contains(searchText.lowercased()) {
-                self.filteredSports.value.append(index)
-            }
+        self.filteredSports.value = searchText.isEmpty ? sports.value : self.sports.value.filter {
+            $0.strSport.lowercased().contains(searchText.lowercased())
         }
     }
 
     public func downloadAllSports() {
         client.fetchSports { [weak self] result in
             guard let self = self else { return }
-
             switch result {
             case .success(let sports):
                 self.filteredSports.value = sports.sports.sorted { $0.strSport < $1.strSport }

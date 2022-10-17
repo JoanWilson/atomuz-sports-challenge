@@ -12,7 +12,7 @@ public final class SportsListCoordinator: Coordinator {
 
     private(set) var childCoordinators: [Coordinator] = []
 
-    private let navigationController: UINavigationController
+    public let navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

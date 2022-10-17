@@ -10,6 +10,8 @@ import Foundation
 
 public final class SportsClientMock: SportsClientProtocol {
 
+    let shouldFail: Bool
+
     private let sportsMock: Sports = Sports(sports: [
         Sport(
             idSport: "1",
@@ -21,6 +23,7 @@ public final class SportsClientMock: SportsClientProtocol {
     ])
 
     init() {
+        self.shouldFail = false
     }
 
     public func fetchSports(completion: @escaping (Result<Sports, Error>) -> Void) {

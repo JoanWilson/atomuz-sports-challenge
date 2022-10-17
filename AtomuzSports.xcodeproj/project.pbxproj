@@ -26,6 +26,7 @@
 		85434E1328F690FF005FD6D0 /* SportsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434E1228F690FF005FD6D0 /* SportsClientTests.swift */; };
 		85434E1728F692A6005FD6D0 /* SportsClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434E1628F692A6005FD6D0 /* SportsClientProtocol.swift */; };
 		85434E1B28F694FE005FD6D0 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434E1A28F694FE005FD6D0 /* ObservableObject.swift */; };
+		8546EAD728FDEA0400B01840 /* Sport+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546EAD628FDEA0400B01840 /* Sport+Mock.swift */; };
 		8550314028FD88BD007C98FA /* SportsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8550313F28FD88BD007C98FA /* SportsDetailView.swift */; };
 		8567B45528F70B8300503054 /* SportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567B45428F70B8300503054 /* SportsTableViewCell.swift */; };
 		8567B45728F82F8F00503054 /* SportsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567B45628F82F8F00503054 /* SportsListView.swift */; };
@@ -83,6 +84,7 @@
 		85434E1628F692A6005FD6D0 /* SportsClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsClientProtocol.swift; sourceTree = "<group>"; };
 		85434E1828F693C4005FD6D0 /* SportsClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsClientMock.swift; sourceTree = "<group>"; };
 		85434E1A28F694FE005FD6D0 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
+		8546EAD628FDEA0400B01840 /* Sport+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sport+Mock.swift"; sourceTree = "<group>"; };
 		8550313F28FD88BD007C98FA /* SportsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsDetailView.swift; sourceTree = "<group>"; };
 		8567B45428F70B8300503054 /* SportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsTableViewCell.swift; sourceTree = "<group>"; };
 		8567B45628F82F8F00503054 /* SportsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsListView.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				85C2FC1228FD09A400BDF3B6 /* SportsListViewControllerTests.swift */,
+				8546EAD628FDEA0400B01840 /* Sport+Mock.swift */,
 				85C2FC1428FD0A7D00BDF3B6 /* SportsListViewModelTests.swift */,
 			);
 			path = SportsList;
@@ -508,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8546EAD728FDEA0400B01840 /* Sport+Mock.swift in Sources */,
 				85434E1328F690FF005FD6D0 /* SportsClientTests.swift in Sources */,
 				85C2FBD128FC8C5100BDF3B6 /* SportsClientMock.swift in Sources */,
 				85C2FC1328FD09A400BDF3B6 /* SportsListViewControllerTests.swift in Sources */,
