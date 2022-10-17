@@ -9,13 +9,22 @@ import UIKit
 
 final class SportsListView: UIView {
 
+    lazy var progressView: UIActivityIndicatorView = {
+        let progressView = UIActivityIndicatorView()
+        progressView.startAnimating()
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        progressView.isHidden = false
+
+        return progressView
+    }()
+
     lazy var sportsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(SportsTableViewCell.self, forCellReuseIdentifier: SportsTableViewCell.indentifier)
         tableView.separatorColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.isHidden = false
+        tableView.isHidden = true
 
         return tableView
     }()
@@ -36,6 +45,7 @@ extension SportsListView: ViewCoding {
 
     func setupHierarchy() {
         self.addSubview(self.sportsTableView)
+        self.addSubview(self.progressView)
     }
 
     func setupConstraints() {
@@ -43,7 +53,10 @@ extension SportsListView: ViewCoding {
             self.sportsTableView.topAnchor.constraint(equalTo: self.topAnchor),
             self.sportsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.sportsTableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            self.sportsTableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
+            self.sportsTableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+
+            self.progressView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.progressView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
 }

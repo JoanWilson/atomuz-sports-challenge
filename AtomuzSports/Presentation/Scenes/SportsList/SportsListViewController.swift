@@ -16,6 +16,7 @@ final class SportsListViewController: UIViewController {
 
     fileprivate lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.tintColor = UIColor(red: 0.039, green: 0.561, blue: 0.333, alpha: 1)
 
         return searchController
     }()
@@ -41,6 +42,7 @@ final class SportsListViewController: UIViewController {
         self.contentView.sportsTableView.delegate = self
         self.contentView.sportsTableView.dataSource = self
         self.searchController.searchBar.delegate = self
+
     }
 
     private func addBinders() {
@@ -48,6 +50,18 @@ final class SportsListViewController: UIViewController {
             guard let self else { return }
             DispatchQueue.main.async {
                 self.contentView.sportsTableView.reloadData()
+                self.isTheLoadingFinished()
+            }
+        }
+    }
+
+    private func isTheLoadingFinished() {
+        DispatchQueue.global().async {
+            if self.viewModel.getSportsLength() >= 0 {
+                DispatchQueue.main.async {
+                    self.contentView.progressView.isHidden = true
+                    self.contentView.sportsTableView.isHidden = false
+                }
             }
         }
     }
@@ -120,6 +134,6 @@ extension SportsListViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.filterSports(by: searchBar.text ?? "")
+        viewModel.filterSports(by: searchBar.text?.trimmingCharacters(in: .whitespaces) ?? "")
     }
 }
