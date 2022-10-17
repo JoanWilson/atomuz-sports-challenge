@@ -3,14 +3,14 @@
 //  AtomuzSports
 //
 //  Created by Joan Wilson Oliveira on 15/10/22.
-// swiftlint:disable line_length
+//
 
 import UIKit
 import SwiftUI
 
-class SportsDetailAboutView: UIView {
+final class SportsDetailAboutView: UIView {
 
-    lazy var sportAboutLabel: UILabel = {
+    private let sportAboutLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "AvenirNext-Bold", size: 20)
         label.text = "About the sport"
@@ -95,4 +95,3 @@ extension SportsDetailAboutView: ViewCoding {
     }
 
 }
-

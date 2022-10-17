@@ -8,16 +8,9 @@
 import Foundation
 import UIKit
 
-enum SportsListViewModelErrorL: Error {
-    case failedGetURL
-    case unableToGetImage
-    case errorToDownloadAllSports
-}
-
-final class SportsListViewModel {
+public class SportsListViewModel {
     var sports: ObservableObject<[Sport]> = ObservableObject([])
     var filteredSports: ObservableObject<[Sport]> = ObservableObject([])
-    //    var sportsA: [Sport] = []
 
     private let client: SportsClientProtocol
     public let coordinator: SportsListCoordinator
@@ -39,8 +32,7 @@ final class SportsListViewModel {
         }
     }
 
-    private func downloadAllSports() {
-        print(#function)
+    public func downloadAllSports() {
         client.fetchSports { [weak self] result in
             guard let self = self else { return }
 
@@ -58,16 +50,12 @@ final class SportsListViewModel {
         return self.filteredSports.value.count
     }
 
-    //    public func getSportsObjectArrayOrdered() -> [Sport] {
-    //        return self.sports.value.sports.sorted { $0.strSport < $1.strSport }
-    //    }
-
-    //    public func getGreenIconImageSportArray() -> [UIImage] {
-    //        return self.sportsGreenIcons.value
-    //    }
-
     public func getSportByIndex(index: Int) -> Sport {
         return self.filteredSports.value[index]
+    }
+
+    public func getAllSport() -> [Sport] {
+        return self.sports.value
     }
 
     public func makeSportsTableViewCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {

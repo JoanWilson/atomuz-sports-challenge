@@ -12,7 +12,7 @@ final class SportsListViewController: UIViewController {
     private var viewModel: SportsListViewModel
     private var isSearch: Bool = false
     private var imageCache = NSCache<NSString, UIImage>()
-    private let contentView = SportsListView()
+    public let contentView = SportsListView()
 
     fileprivate lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -44,13 +44,6 @@ final class SportsListViewController: UIViewController {
     }
 
     private func addBinders() {
-//        viewModel.sports.bind { [weak self] _ in
-//            guard let self else { return }
-//            DispatchQueue.main.async {
-//                self.contentView.sportsTableView.reloadData()
-//            }
-//        }
-
         viewModel.filteredSports.bind { [weak self] _ in
             guard let self else { return }
             DispatchQueue.main.async {

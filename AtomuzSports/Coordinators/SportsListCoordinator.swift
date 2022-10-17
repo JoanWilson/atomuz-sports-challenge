@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class SportsListCoordinator: Coordinator {
+public final class SportsListCoordinator: Coordinator {
 
     private(set) var childCoordinators: [Coordinator] = []
 
@@ -18,16 +18,16 @@ final class SportsListCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    func start() {
+    public func start() {
         let sportsClient = SportsClient()
         let sportsListViewModel = SportsListViewModel(client: sportsClient, coordinator: self)
         let sportsListViewController = SportsListViewController(viewModel: sportsListViewModel)
         navigationController.setViewControllers([sportsListViewController], animated: false)
     }
 
-    func showDetail(for sport: Sport) {
-        let sportsDetailViewModel = SportsDetailViewModel()
-        let sportsDetailViewController = SportsDetailViewController(viewModel: sportsDetailViewModel, sport: sport)
+    public func showDetail(for sport: Sport) {
+        let sportsDetailViewModel = SportsDetailViewModel(sport: sport)
+        let sportsDetailViewController = SportsDetailViewController(viewModel: sportsDetailViewModel)
         navigationController.pushViewController(sportsDetailViewController, animated: true)
 
     }

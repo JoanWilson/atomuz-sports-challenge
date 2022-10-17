@@ -7,10 +7,22 @@
 
 import Foundation
 
-final class SportsDetailViewModel {
+protocol SportsDetailViewModelDelegate: AnyObject {
+    func popToRootView()
+}
 
-    func helloWorld() {
+class SportsDetailViewModel {
 
+    weak var delegate: SportsDetailViewModelDelegate?
+
+    public var sport: Sport
+
+    init(sport: Sport) {
+        self.sport = sport
+    }
+
+    @objc func backToSportsListView() {
+        delegate?.popToRootView()
     }
 
 }

@@ -7,15 +7,7 @@
 
 import UIKit
 
-class SportsListView: UIView {
-
-//    let loading: UIActivityIndicatorView = {
-//        let loadingView = UIActivityIndicatorView(style: .medium)
-//        loadingView.startAnimating()
-//        loadingView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        return loadingView
-//    }()
+final class SportsListView: UIView {
 
     lazy var sportsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)

@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-final class AppCoordinator: Coordinator {
-
+public final class AppCoordinator: Coordinator {
     private(set) var childCoordinators: [Coordinator] = []
 
     private let window: UIWindow
@@ -22,9 +21,8 @@ final class AppCoordinator: Coordinator {
         let navigationController = UINavigationController()
         let sportsListCoordinator = SportsListCoordinator(navigationController: navigationController)
 
-        self.childCoordinators.append(sportsListCoordinator)
-
         sportsListCoordinator.start()
+        self.childCoordinators.append(sportsListCoordinator)
 
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

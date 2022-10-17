@@ -70,7 +70,7 @@ final class SportsTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.setSport(with: Sport(idSport: "", strSport: "", strFormat: StrFormat.teamvsTeam, strSportThumb: "", strSportIconGreen: "", strSportDescription: ""))
+        self.sportsIconImageView.image = UIImage()
     }
 
     public func setSport(with sport: Sport) {
