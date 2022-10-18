@@ -49,7 +49,7 @@ AtomuzSports/
 
 ```
 
-## 🤝 Desenvolvido por
+## 🤝 Developed by
 
 
 <table>
