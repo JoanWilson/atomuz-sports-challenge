@@ -12,7 +12,7 @@ public class SportsListViewModel {
     var sports: ObservableObject<[Sport]> = ObservableObject([])
     var filteredSports: ObservableObject<[Sport]> = ObservableObject([])
 
-    private let client: SportsClientProtocol
+    public var client: SportsClientProtocol
     public let coordinator: SportsListCoordinator
 
     init(client: SportsClientProtocol, coordinator: SportsListCoordinator) {

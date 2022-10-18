@@ -8,17 +8,6 @@
 import XCTest
 @testable import AtomuzSports
 
-extension Sport {
-    static var mock = Sport(
-        idSport: "",
-        strSport: "",
-        strFormat: StrFormat.teamvsTeam,
-        strSportThumb: "",
-        strSportIconGreen: "",
-        strSportDescription: ""
-    )
-}
-
 public final class SportsListViewModelTests: XCTestCase {
 
     private var sut: SportsListViewModel!
@@ -46,16 +35,7 @@ public final class SportsListViewModelTests: XCTestCase {
     }
 
     func test_getSportsLength_ShouldReturn1() {
-        sut.filteredSports.value.append(
-            Sport(
-                idSport: "",
-                strSport: "",
-                strFormat: StrFormat.teamvsTeam,
-                strSportThumb: "",
-                strSportIconGreen: "",
-                strSportDescription: ""
-            )
-        )
+        sut.filteredSports.value.append(.mock)
         XCTAssertEqual(sut.getSportsLength(), 2)
     }
 
@@ -91,34 +71,27 @@ public final class SportsListViewModelTests: XCTestCase {
     }
 
     func test_filterSports_MustAppendToFilteredSportsWhenSportsContainsSearchText() {
-        sut.sports.value.append(Sport(
-            idSport: "",
-            strSport: "Test",
-            strFormat: StrFormat.eventSport,
-            strSportThumb: "nil",
-            strSportIconGreen: "nil",
-            strSportDescription: "nil")
-        )
+        sut.sports.value.append(.mock)
         sut.filterSports(by: "Test")
         XCTAssertEqual(sut.filteredSports.value[0].strSport, "Test")
     }
 
     func test_showCellDetail_MustPushToSportsDetailViewController() {
-        sut.filteredSports.value.append(
-            Sport(
-                idSport: "",
-                strSport: "",
-                strFormat: StrFormat.teamvsTeam,
-                strSportThumb: "",
-                strSportIconGreen: "",
-                strSportDescription: ""
-            )
-        )
+        sut.filteredSports.value.append(.mock)
         sut.coordinator.start()
         let firstViewController =  sut.coordinator.navigationController.viewControllers.first
         sut.showCellDetail(index: 0)
         let currentViewController =  sut.coordinator.navigationController.visibleViewController
         XCTAssertEqual(firstViewController, currentViewController)
+    }
+
+    func test_downloadAllSports_ShouldReturnFailure() {
+        let client = SportsClientMock()
+        client.shouldFail = true
+        sut.client = client
+        sut.client.fetchSports { result in
+            XCTAssertThrowsError(result, ClientErrors.unableToFetch.localizedDescription)
+        }
     }
 
 }

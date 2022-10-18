@@ -8,27 +8,28 @@
 import Foundation
 @testable import AtomuzSports
 
+enum ClientErrors: Error {
+    case unableToFetch
+}
+
 public final class SportsClientMock: SportsClientProtocol {
 
-    let shouldFail: Bool
-
-    private let sportsMock: Sports = Sports(sports: [
-        Sport(
-            idSport: "1",
-            strSport: "Soccer",
-            strFormat: StrFormat.teamvsTeam,
-            strSportThumb: "thumb",
-            strSportIconGreen: "soccer",
-            strSportDescription: "Soccer description")
-    ])
+    public var shouldFail: Bool
+    private let sportsMock: Sports = Sports(sports: Sport.mockWithTwoElements)
 
     init() {
         self.shouldFail = false
     }
 
     public func fetchSports(completion: @escaping (Result<Sports, Error>) -> Void) {
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-            completion(.success(self.sportsMock))
+            if self.shouldFail == false {
+                completion(.success(self.sportsMock))
+            } else {
+                completion(.failure(ClientErrors.unableToFetch))
+            }
+
         }
     }
 }

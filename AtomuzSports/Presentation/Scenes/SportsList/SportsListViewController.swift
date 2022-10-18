@@ -9,13 +9,14 @@ import UIKit
 
 final class SportsListViewController: UIViewController {
 
-    public var viewModel: SportsListViewModel
-    private var isSearch: Bool = false
-    public let contentView = SportsListView()
+    var viewModel: SportsListViewModel
+    var isSearch: Bool = false
+    let contentView = SportsListView()
 
-    fileprivate lazy var searchController: UISearchController = {
+    lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.tintColor = UIColor(red: 0.039, green: 0.561, blue: 0.333, alpha: 1)
+        searchController.searchBar.isHidden = true
 
         return searchController
     }()
@@ -54,12 +55,14 @@ final class SportsListViewController: UIViewController {
         }
     }
 
-    private func isTheLoadingFinished() {
+    public func isTheLoadingFinished() {
         DispatchQueue.global().async {
             if self.viewModel.getSportsLength() >= 0 {
                 DispatchQueue.main.async {
                     self.contentView.progressView.isHidden = true
                     self.contentView.sportsTableView.isHidden = false
+                    self.searchController.searchBar.isHidden = false
+
                 }
             }
         }

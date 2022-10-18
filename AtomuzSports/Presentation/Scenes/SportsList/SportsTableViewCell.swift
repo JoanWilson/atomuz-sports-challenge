@@ -7,26 +7,12 @@
 
 import UIKit
 
-extension UIColor {
-    var lightDarkDescription: String {
-        let lightTraits = UITraitCollection.init(userInterfaceStyle: .light)
-        let darkTraits = UITraitCollection.init(userInterfaceStyle: .dark)
-        let lightColor = self.resolvedColor(with: lightTraits)
-        let darkColor = self.resolvedColor(with: darkTraits)
-        if lightColor == darkColor {
-            return self.description
-        } else {
-            return "\(self), light: \(lightColor), dark: \(darkColor)"
-        }
-    }
-}
-
 final class SportsTableViewCell: UITableViewCell {
 
     static let indentifier: String = "SportsTableViewCell"
     public var shadowColor: CGColor = UIColor.label.cgColor
 
-    private var sport: Sport? {
+    var sport: Sport? {
         didSet {
             sportsLabel.text = sport?.strSport
             guard let url = URL(string: sport!.strSportIconGreen) else {
@@ -70,11 +56,6 @@ final class SportsTableViewCell: UITableViewCell {
 
         return imageView
     }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.sport = nil
-    }
 
     override func layoutSubviews() {
         super.layoutSubviews()

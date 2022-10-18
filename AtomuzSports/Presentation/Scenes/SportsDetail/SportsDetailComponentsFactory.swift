@@ -30,8 +30,11 @@ extension SportsDetailComponentsFactory {
         let view = SportsDetailAboutView()
         view.sportDescriptionLabel.text = viewModel.sport.strSportDescription
         view.sportFormatLabel.text = viewModel.sport.strFormat.rawValue
-        view.sportGreenIcon.load(url: URL(string: viewModel.sport.strSportIconGreen)!)
         view.translatesAutoresizingMaskIntoConstraints = false
+        guard let url = URL(string: viewModel.sport.strSportIconGreen) else {
+            return view
+        }
+        view.sportGreenIcon.load(url: url)
 
         return view
     }
@@ -39,10 +42,12 @@ extension SportsDetailComponentsFactory {
     private func buildHeadertView(viewModel: SportsDetailViewModel) -> UIView {
 
         let headerView = SportsDetailHeaderView()
-        headerView.sportsHeaderImage.load(url: URL(string: viewModel.sport.strSportThumb)!)
         headerView.headerLabel.text = viewModel.sport.strSport
         headerView.translatesAutoresizingMaskIntoConstraints = false
-
+        guard let url = URL(string: viewModel.sport.strSportThumb) else {
+            return headerView
+        }
+        headerView.sportsHeaderImage.load(url: url)
         return headerView
     }
 }

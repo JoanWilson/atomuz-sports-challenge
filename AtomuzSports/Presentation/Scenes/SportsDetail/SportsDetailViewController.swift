@@ -19,7 +19,7 @@ final class SportsDetailViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     override func loadView() {
@@ -47,7 +47,6 @@ final class SportsDetailViewController: UIViewController {
 
 extension SportsDetailViewController: SportsDetailViewModelDelegate {
     func popToRootView() {
-        print("cheguei aqui")
         self.navigationController?.popViewController(animated: true)
     }
 }
