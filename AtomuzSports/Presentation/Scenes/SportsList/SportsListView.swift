@@ -23,6 +23,7 @@ final class SportsListView: UIView {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(SportsTableViewCell.self, forCellReuseIdentifier: SportsTableViewCell.indentifier)
         tableView.separatorColor = .clear
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isHidden = true
 

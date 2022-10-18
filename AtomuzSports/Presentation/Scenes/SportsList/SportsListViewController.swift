@@ -73,7 +73,7 @@ final class SportsListViewController: UIViewController {
         searchController.searchBar.searchTextField.font = UIFont(name: "AvenirNext-Regular", size: 20)
         let appearance = UINavigationBarAppearance(idiom: .phone)
         appearance.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: UIColor.label,
             NSAttributedString.Key.font: UIFont(name: "AvenirNext-DemiBold", size: 40) as Any
         ]
         navigationItem.standardAppearance = appearance
@@ -110,6 +110,7 @@ extension SportsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel.showCellDetail(index: indexPath.section)
     }
+
 }
 
 extension SportsListViewController: UISearchBarDelegate {

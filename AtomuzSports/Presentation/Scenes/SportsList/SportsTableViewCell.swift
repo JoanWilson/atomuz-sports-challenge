@@ -7,9 +7,24 @@
 
 import UIKit
 
+extension UIColor {
+    var lightDarkDescription: String {
+        let lightTraits = UITraitCollection.init(userInterfaceStyle: .light)
+        let darkTraits = UITraitCollection.init(userInterfaceStyle: .dark)
+        let lightColor = self.resolvedColor(with: lightTraits)
+        let darkColor = self.resolvedColor(with: darkTraits)
+        if lightColor == darkColor {
+            return self.description
+        } else {
+            return "\(self), light: \(lightColor), dark: \(darkColor)"
+        }
+    }
+}
+
 final class SportsTableViewCell: UITableViewCell {
 
     static let indentifier: String = "SportsTableViewCell"
+    public var shadowColor: CGColor = UIColor.label.cgColor
 
     private var sport: Sport? {
         didSet {
@@ -30,10 +45,12 @@ final class SportsTableViewCell: UITableViewCell {
         stackView.layer.cornerRadius = 10
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.distribution = .equalSpacing
-        stackView.layer.shadowColor = UIColor.label.cgColor
+        stackView.layer.shadowColor = UIColor.black.cgColor
         stackView.layer.shadowOpacity = 0.3
         stackView.layer.shadowOffset = .zero
         stackView.layer.shadowRadius = 2
+        stackView.layer.masksToBounds = false
+        stackView.backgroundColor = UIColor(named: "shadowColor")
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         return stackView

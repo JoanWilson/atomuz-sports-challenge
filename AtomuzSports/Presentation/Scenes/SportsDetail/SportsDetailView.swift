@@ -33,6 +33,7 @@ final class SportsDetailView: UIView {
 
     let detailScrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
 
         return scrollView
