@@ -20,6 +20,17 @@ final class SportsDetailAboutView: UIView {
         return label
     }()
 
+    lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25))
+        button.setImage(image, for: .normal)
+        button.tintColor = .systemRed
+        button.addTarget(self, action: #selector(favoriteSport), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+
     lazy var sportGreenIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "soccer")
@@ -55,6 +66,23 @@ final class SportsDetailAboutView: UIView {
 
     }
 
+    @objc func favoriteSport() {
+        if self.favoriteButton.imageView?.image == UIImage(
+            systemName: "heart",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 25)
+        ) {
+            self.favoriteButton.setImage(
+                UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25)),
+                for: .normal
+            )
+        } else {
+            self.favoriteButton.setImage(
+                UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25)),
+                for: .normal
+            )
+        }
+    }
+
 }
 
 extension SportsDetailAboutView: ViewCoding {
@@ -68,6 +96,7 @@ extension SportsDetailAboutView: ViewCoding {
         self.addSubview(sportGreenIcon)
         self.addSubview(sportFormatLabel)
         self.addSubview(sportDescriptionLabel)
+        self.addSubview(favoriteButton)
     }
 
     func setupConstraints() {
@@ -89,7 +118,11 @@ extension SportsDetailAboutView: ViewCoding {
             self.sportDescriptionLabel.topAnchor.constraint(equalTo: sportFormatLabel.bottomAnchor, constant: 19),
             self.sportDescriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.sportDescriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.sportDescriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            self.sportDescriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+
+            self.favoriteButton.topAnchor.constraint(equalTo: self.topAnchor),
+            self.favoriteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+
 
         ])
     }

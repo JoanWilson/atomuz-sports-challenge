@@ -51,7 +51,7 @@ public final class SportsListViewModelTests: XCTestCase {
     func test_makeSportsTableViewCell_MustReturnANotCustomTableViewCell() {
         let sportsListViewController = SportsListViewController(viewModel: sut)
         let tableView = sportsListViewController.contentView.sportsTableView
-        let cell = sut.makeSportsTableViewCell(tableView: tableView, indexPath: IndexPath(row: 0, section: 0))
+        let cell = sut.makeSportsTableViewCell(tableView: tableView, indexPath: IndexPath(row: Int.max, section: Int.max))
         XCTAssertNotNil(cell as UITableViewCell)
     }
 
