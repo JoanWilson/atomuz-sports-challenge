@@ -45,6 +45,11 @@ final class FavoritesViewController: UIViewController {
         }
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.contentView.sportsTableView.reloadData()
+    }
+
     public func configureNavigationController() {
         self.title = "Favorites"
     }
@@ -78,7 +83,15 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("test")
+        self.showCellDetail(index: indexPath.section)
+
+    }
+
+    public func showCellDetail(index: Int) {
+        let sport = self.viewModel.favoriteSports.value[index]
+        let sportsDetailViewModel = SportsDetailViewModel(sport: sport)
+        let sportsDetailViewController = SportsDetailViewController(viewModel: sportsDetailViewModel)
+        navigationController?.pushViewController(sportsDetailViewController, animated: true)
     }
 
 }

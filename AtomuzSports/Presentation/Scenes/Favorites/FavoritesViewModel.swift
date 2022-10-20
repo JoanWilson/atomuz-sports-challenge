@@ -10,14 +10,19 @@ import UIKit
 
 final class FavoritesViewModel {
 
-    var favoriteSports: ObservableObject<[Sport]> = ObservableObject([Sport(idSport: "Test", strSport: "Test", strFormat: StrFormat.eventSport, strSportThumb: "test", strSportIconGreen: "test", strSportDescription: "test")])
+    var favoriteSports: ObservableObject<[Sport]> = ObservableObject([])
+    var coreDataManager = CoreDataManager()
 
     init() {
         self.downloadFavoriteSports()
     }
 
     public func downloadFavoriteSports() {
-
+        let favorites = coreDataManager.fetchAllFavorites()
+        for index in favorites {
+            let newFavorite = Sport(idSport: index.idSport!, strSport: index.strSport!, strFormat: StrFormat(rawValue: index.strFormat!)!, strSportThumb: index.strSportThumb!, strSportIconGreen: index.strSportIconGreen!, strSportDescription: index.strSportDescription!)
+            self.favoriteSports.value.append(newFavorite)
+        }
     }
 
     public func makeSportsTableViewCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +48,4 @@ final class FavoritesViewModel {
         return headerView
     }
 
-//    public func showCellDetail(index: Int) {
-//
-//    }
 }

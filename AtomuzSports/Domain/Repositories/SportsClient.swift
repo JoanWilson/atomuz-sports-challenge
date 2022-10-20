@@ -24,7 +24,7 @@ public final class SportsClient: SportsClientProtocol {
             }
 
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(URLError(.badServerResponse)));
+                completion(.failure(URLError(.badServerResponse)))
                 return
             }
 

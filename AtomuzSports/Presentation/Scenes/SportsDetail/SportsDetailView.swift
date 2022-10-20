@@ -11,6 +11,18 @@ final class SportsDetailView: UIView {
 
     public var viewModel: SportsDetailViewModel
 
+    lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+
+        var image = UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25))
+        button.setImage(image, for: .normal)
+        button.tintColor = .systemRed
+        button.addTarget(self, action: #selector(favoriteSport), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+
     lazy var backButton: UIButton = {
         let button = UIButton()
         let imageConfiguration = UIImage.SymbolConfiguration(
@@ -60,6 +72,35 @@ final class SportsDetailView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.buildLayout()
+        let favoriteSports = self.viewModel.downloadFavoriteSports()
+        if favoriteSports.contains(where: { $0.strSport! == self.viewModel.sport.strSport}) {
+            self.favoriteButton.setImage(
+                UIImage(
+                    systemName: "heart.fill",
+                    withConfiguration: UIImage.SymbolConfiguration(pointSize: 25)
+                ),
+                for: .normal
+            )
+        }
+    }
+
+    @objc func favoriteSport() {
+        if self.favoriteButton.imageView?.image == UIImage(
+            systemName: "heart",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 25)
+        ) {
+            self.favoriteButton.setImage(
+                UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25)),
+                for: .normal
+            )
+            self.viewModel.addSportToFavorites()
+        } else {
+            self.favoriteButton.setImage(
+                UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25)),
+                for: .normal
+            )
+            self.viewModel.removeSportFromFavorites()
+        }
     }
 
 }
@@ -75,6 +116,7 @@ extension SportsDetailView: ViewCoding {
         self.detailContainer.addArrangedSubview(descriptionView)
         self.detailScrollView.addSubview(detailContainer)
         self.detailScrollView.addSubview(backButton)
+        self.detailScrollView.addSubview(favoriteButton)
 
     }
 
@@ -102,7 +144,10 @@ extension SportsDetailView: ViewCoding {
             self.backButton.topAnchor.constraint(equalTo: detailScrollView.topAnchor, constant: 32),
             self.backButton.leadingAnchor.constraint(equalTo: detailScrollView.leadingAnchor),
             self.backButton.heightAnchor.constraint(equalToConstant: 50),
-            self.backButton.widthAnchor.constraint(equalToConstant: 50)
+            self.backButton.widthAnchor.constraint(equalToConstant: 50),
+
+            self.favoriteButton.topAnchor.constraint(equalTo: self.descriptionView.topAnchor),
+            self.favoriteButton.trailingAnchor.constraint(equalTo: self.descriptionView.trailingAnchor)
         ])
     }
 }

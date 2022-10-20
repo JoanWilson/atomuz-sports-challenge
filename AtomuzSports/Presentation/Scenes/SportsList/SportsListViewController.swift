@@ -93,7 +93,10 @@ final class SportsListViewController: UIViewController {
 
     @objc func presentFavorites() {
         let favoritesViewModel = FavoritesViewModel()
-        self.navigationController?.pushViewController(FavoritesViewController(viewModel: favoritesViewModel), animated: true)
+        self.navigationController?.pushViewController(
+            FavoritesViewController(viewModel: favoritesViewModel),
+            animated: true
+        )
     }
 
 }
