@@ -80,6 +80,23 @@ final class SportsListViewController: UIViewController {
             NSAttributedString.Key.font: UIFont(name: "AvenirNext-DemiBold", size: 40) as Any
         ]
         navigationItem.standardAppearance = appearance
+
+        let favoritesButton = UIBarButtonItem(title: "Favorites",
+                                              style: UIBarButtonItem.Style.plain,
+                                              target: self,
+                                              action: #selector(presentFavorites))
+        let favoritesNavItem = favoritesButton
+        self.navigationItem.rightBarButtonItem = favoritesNavItem
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.039, green: 0.561, blue: 0.333, alpha: 1)
+
+    }
+
+    @objc func presentFavorites() {
+        let favoritesViewModel = FavoritesViewModel()
+        self.navigationController?.pushViewController(
+            FavoritesViewController(viewModel: favoritesViewModel),
+            animated: true
+        )
     }
 
 }

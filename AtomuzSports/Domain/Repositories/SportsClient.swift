@@ -18,12 +18,14 @@ public final class SportsClient: SportsClientProtocol {
         guard let url = URL(string: urlString) else { return }
 
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error { completion(.failure(error)); return }
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
 
-            guard
-                let response = response as? HTTPURLResponse,
-                response.statusCode == 200 else {
-                completion(.failure(URLError(.badServerResponse))); return
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(URLError(.badServerResponse)))
+                return
             }
 
             guard let data = data else {completion(.failure(URLError(.badURL))); return }

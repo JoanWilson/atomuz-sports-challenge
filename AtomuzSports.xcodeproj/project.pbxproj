@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8533A08229016E5300DBC4FF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8533A08129016E5300DBC4FF /* CoreDataManager.swift */; };
+		8533A0852901786000DBC4FF /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8533A0842901786000DBC4FF /* CoreDataManagerTests.swift */; };
 		85434DB228F669D5005FD6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434DB128F669D5005FD6D0 /* AppDelegate.swift */; };
 		85434DB428F669D5005FD6D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85434DB328F669D5005FD6D0 /* SceneDelegate.swift */; };
 		85434DBB28F669D7005FD6D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85434DBA28F669D7005FD6D0 /* Assets.xcassets */; };
@@ -37,6 +39,10 @@
 		85B4DA1628FEDB6800D63110 /* SportsDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4DA1528FEDB6800D63110 /* SportsDetailViewControllerTests.swift */; };
 		85B4DA1828FEE30000D63110 /* SportsDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4DA1728FEE30000D63110 /* SportsDetailViewTests.swift */; };
 		85B4DA1B28FEED5400D63110 /* SportsHashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4DA1A28FEED5400D63110 /* SportsHashableTests.swift */; };
+		85B4DA2029002D0800D63110 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4DA1F29002D0800D63110 /* FavoritesViewController.swift */; };
+		85B4DA2229002D2700D63110 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4DA2129002D2700D63110 /* FavoritesView.swift */; };
+		85B4DA2429002D3500D63110 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4DA2329002D3500D63110 /* FavoritesViewModel.swift */; };
+		85B4DA282900443400D63110 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85B4DA262900443400D63110 /* Database.xcdatamodeld */; };
 		85C2FBBF28FA388100BDF3B6 /* SportsDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2FBBE28FA388100BDF3B6 /* SportsDetailHeaderView.swift */; };
 		85C2FBC328FA3E3E00BDF3B6 /* UIImageViewDarkOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2FBC228FA3E3E00BDF3B6 /* UIImageViewDarkOverlay.swift */; };
 		85C2FBC928FB081900BDF3B6 /* SportsDetailAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2FBC828FB081900BDF3B6 /* SportsDetailAboutView.swift */; };
@@ -64,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8533A08129016E5300DBC4FF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8533A0842901786000DBC4FF /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		85434DAE28F669D5005FD6D0 /* AtomuzSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtomuzSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85434DB128F669D5005FD6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85434DB328F669D5005FD6D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +107,10 @@
 		85B4DA1528FEDB6800D63110 /* SportsDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		85B4DA1728FEE30000D63110 /* SportsDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsDetailViewTests.swift; sourceTree = "<group>"; };
 		85B4DA1A28FEED5400D63110 /* SportsHashableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsHashableTests.swift; sourceTree = "<group>"; };
+		85B4DA1F29002D0800D63110 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		85B4DA2129002D2700D63110 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		85B4DA2329002D3500D63110 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		85B4DA272900443400D63110 /* Databse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Databse.xcdatamodel; sourceTree = "<group>"; };
 		85C2FBBE28FA388100BDF3B6 /* SportsDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsDetailHeaderView.swift; sourceTree = "<group>"; };
 		85C2FBC228FA3E3E00BDF3B6 /* UIImageViewDarkOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewDarkOverlay.swift; sourceTree = "<group>"; };
 		85C2FBC828FB081900BDF3B6 /* SportsDetailAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsDetailAboutView.swift; sourceTree = "<group>"; };
@@ -132,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8533A0832901783E00DBC4FF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8533A0842901786000DBC4FF /* CoreDataManagerTests.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		85434DA528F669D5005FD6D0 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +190,7 @@
 		85434DC728F669D7005FD6D0 /* AtomuzSportsTests */ = {
 			isa = PBXGroup;
 			children = (
+				8533A0832901783E00DBC4FF /* CoreData */,
 				85B4DA1928FEED3300D63110 /* SportsModel */,
 				85C2FC0F28FD04A100BDF3B6 /* SportsList */,
 				85B4DA1028FE44CA00D63110 /* SportsDetail */,
@@ -216,6 +237,7 @@
 		8567B45A28F8775800503054 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				85B4DA252900442300D63110 /* Repository */,
 				85434DEB28F66D2F005FD6D0 /* Entities */,
 			);
 			path = Data;
@@ -286,10 +308,30 @@
 			path = SportsModel;
 			sourceTree = "<group>";
 		};
+		85B4DA1E290024CE00D63110 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				85B4DA2129002D2700D63110 /* FavoritesView.swift */,
+				85B4DA1F29002D0800D63110 /* FavoritesViewController.swift */,
+				85B4DA2329002D3500D63110 /* FavoritesViewModel.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		85B4DA252900442300D63110 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				85B4DA262900443400D63110 /* Database.xcdatamodeld */,
+				8533A08129016E5300DBC4FF /* CoreDataManager.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		85C2FBBA28FA380800BDF3B6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				85C2FBBD28FA385500BDF3B6 /* LaunchScreen */,
+				85B4DA1E290024CE00D63110 /* Favorites */,
 				85C2FBBC28FA382800BDF3B6 /* SportsList */,
 				85C2FBBB28FA382100BDF3B6 /* SportsDetail */,
 			);
@@ -512,7 +554,9 @@
 				8567B46928F87FC400503054 /* Sports.swift in Sources */,
 				85434E1728F692A6005FD6D0 /* SportsClientProtocol.swift in Sources */,
 				85C2FBBF28FA388100BDF3B6 /* SportsDetailHeaderView.swift in Sources */,
+				85B4DA2029002D0800D63110 /* FavoritesViewController.swift in Sources */,
 				8567B45528F70B8300503054 /* SportsTableViewCell.swift in Sources */,
+				85B4DA2429002D3500D63110 /* FavoritesViewModel.swift in Sources */,
 				85434E0928F68AA6005FD6D0 /* SportsDetailViewModel.swift in Sources */,
 				85434DEF28F66D4B005FD6D0 /* ViewCoding.swift in Sources */,
 				85434DFB28F67A74005FD6D0 /* AppCoordinator.swift in Sources */,
@@ -521,9 +565,12 @@
 				8567B47128F8C81700503054 /* UIImageViewFetchImageURL.swift in Sources */,
 				85434E0B28F68ABD005FD6D0 /* SportsDetailViewController.swift in Sources */,
 				85434E1B28F694FE005FD6D0 /* ObservableObject.swift in Sources */,
+				85B4DA2229002D2700D63110 /* FavoritesView.swift in Sources */,
 				85434DB428F669D5005FD6D0 /* SceneDelegate.swift in Sources */,
 				85434E0128F68481005FD6D0 /* SportsListViewModel.swift in Sources */,
+				85B4DA282900443400D63110 /* Database.xcdatamodeld in Sources */,
 				85C2FBC328FA3E3E00BDF3B6 /* UIImageViewDarkOverlay.swift in Sources */,
+				8533A08229016E5300DBC4FF /* CoreDataManager.swift in Sources */,
 				85C2FC1728FD111300BDF3B6 /* SportsDetailComponentsFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +583,7 @@
 				85B4DA1228FED21400D63110 /* SportsTableViewCellTests.swift in Sources */,
 				8546EAD728FDEA0400B01840 /* Sport+Mock.swift in Sources */,
 				85B4DA1428FED88300D63110 /* SportsDetailViewModelTests.swift in Sources */,
+				8533A0852901786000DBC4FF /* CoreDataManagerTests.swift in Sources */,
 				85434E1328F690FF005FD6D0 /* SportsClientTests.swift in Sources */,
 				85B4DA1828FEE30000D63110 /* SportsDetailViewTests.swift in Sources */,
 				85C2FBD128FC8C5100BDF3B6 /* SportsClientMock.swift in Sources */,
@@ -867,6 +915,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85B4DA262900443400D63110 /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85B4DA272900443400D63110 /* Databse.xcdatamodel */,
+			);
+			currentVersion = 85B4DA272900443400D63110 /* Databse.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85434DA628F669D5005FD6D0 /* Project object */;
 }

@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 
 final class SportsDetailAboutView: UIView {
+    private var coreDataManager = CoreDataManager()
 
     private let sportAboutLabel: UILabel = {
         let label = UILabel()
