@@ -18,6 +18,36 @@ CleanSports/
 
 ```
 
+# Clean Sports
+<hr>
+
+> An iOS app created using clean architecture. It is an example anf proof of concept. The app fetch a list of sports from an api and is managed by the application.
+
+
+## 👩🏾‍💻 Technologies
+- [x] UIKit
+- [x] ViewCoding
+- [x] Clean Architecture
+- [x] MVVM-C (Design System components)
+- [x] CoreData, UserDefaults
+- [x] API Rest (URLSession, Codable)
+- [x] Unit test - XCTest
+- [x] SPM - swift package manager
+
+## 👩🏾‍💻 High level programming
+- DI (Dependency injection)
+- Inversion of control
+- DRY (don`t repeat yourself)
+- Interface segregation
+- Single responsiblity
+- Liskov substitution
+
+## 👩🏾‍💻 Design patterns
+- Factory
+- Coordinator
+- Singleton
+- Observer
+
 ## 🤝 Developed by
 
 
@@ -35,7 +65,3 @@ CleanSports/
     </td>
   </tr>
 </table>
-
-
-
-[⬆ Voltar ao topo](#Setterfolder)<br>
